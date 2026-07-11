@@ -1,0 +1,112 @@
+# -----------------------------------
+# Python
+# -----------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# -----------------------------------
+# Virtual Environment
+# -----------------------------------
+venv/
+env/
+ENV/
+.venv/
+
+# -----------------------------------
+# VS Code
+# -----------------------------------
+.vscode/
+
+# -----------------------------------
+# macOS
+# -----------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# -----------------------------------
+# Python Distribution
+# -----------------------------------
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# -----------------------------------
+# Logs
+# -----------------------------------
+*.log
+
+# -----------------------------------
+# Streamlit
+# -----------------------------------
+.streamlit/secrets.toml
+
+# Optional: Ignore local Streamlit config
+# .streamlit/config.toml
+
+# -----------------------------------
+# Environment Variables
+# -----------------------------------
+.env
+.env.*
+
+# -----------------------------------
+# Testing
+# -----------------------------------
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# -----------------------------------
+# Jupyter
+# -----------------------------------
+.ipynb_checkpoints/
+
+# -----------------------------------
+# IDEs
+# -----------------------------------
+.idea/
+
+# -----------------------------------
+# Temporary Files
+# -----------------------------------
+*.tmp
+*.bak
+*.swp
+
+# -----------------------------------
+# Local Databases
+# -----------------------------------
+*.db
+*.sqlite3
+
+# -----------------------------------
+# OS Generated
+# -----------------------------------
+Thumbs.db
+Desktop.ini
+
+# -----------------------------------
+# IntelliCardViser Future Files
+# -----------------------------------
+
+# User-specific settings
+user_config.json
+
+# Runtime cache
+cache/
+temp/
+
+# Future usage tracking
+usage/
+history/
+
+# Future downloaded offers
+offers_cache/
+
+# Exported reports
+exports/

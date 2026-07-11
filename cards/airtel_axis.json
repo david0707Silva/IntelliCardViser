@@ -1,0 +1,57 @@
+{
+    "id": "airtel_axis",
+    "card_name": "Airtel Axis",
+    "rules": [
+        {
+            "category": [
+                "Utility",
+                "Recharge"
+            ],
+            "benefit_type": "cashback",
+            "benefit_value": 25,
+            "eligible_merchants": [
+                "Airtel Thanks"
+            ]
+        },
+        {
+            "category": [
+                "Utility"
+            ],
+            "benefit_type": "cashback",
+            "benefit_value": 10,
+            "eligible_merchants": [
+                "Airtel Thanks"
+            ]
+        },
+        {
+            "category": [
+                "Food Delivery"
+            ],
+            "benefit_type": "cashback",
+            "benefit_value": 10,
+            "eligible_merchants": [
+                "Zomato"
+            ]
+        },
+        {
+            "category": [
+                "Grocery"
+            ],
+            "benefit_type": "cashback",
+            "benefit_value": 10,
+            "eligible_merchants": [
+                "Blinkit"
+            ]
+        },
+        {
+            "category": [
+                "Movies"
+            ],
+            "benefit_type": "cashback",
+            "benefit_value": 10,
+            "eligible_merchants": [
+                "District Movies"
+            ]
+        }
+    ]
+}
