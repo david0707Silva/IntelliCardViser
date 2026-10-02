@@ -1,0 +1,31 @@
+{
+    "id": "amazon_pay_icici",
+    "card_name": "Amazon Pay ICICI",
+    "rules": [
+        {
+            "category": [
+                "Shopping",
+                "Flights",
+                "Hotels",
+                "Grocery"
+            ],
+            "benefit_type": "cashback",
+            "benefit_value": 5,
+            "eligible_merchants": [
+                "Amazon",
+                "Amazon Fresh"
+            ]
+        },
+        {
+            "category": [
+                "Utility",
+                "Recharge"
+            ],
+            "benefit_type": "cashback",
+            "benefit_value": 2,
+            "eligible_merchants": [
+                "Amazon Pay"
+            ]
+        }
+    ]
+}

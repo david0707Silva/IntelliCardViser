@@ -1,0 +1,90 @@
+{
+    "id": "hdfc_swiggy_orange",
+    "card_name": "HDFC Swiggy Ornge",
+    "rules": [
+        {
+            "category": [
+                "Food Delivery",
+                "Dining",
+                "Grocery"
+            ],
+            "benefit_type": "cashback",
+            "benefit_value": 5,
+            "eligible_merchants": [
+                "Swiggy",
+                "Instamart",
+                "Swiggy Dineout"
+            ]
+        },
+        {
+            "category": [
+                "Shopping"
+            ],
+            "benefit_type": "cashback",
+            "benefit_value": 5,
+            "eligible_merchants": [
+                "Amazon",
+                "Flipkart",
+                "Myntra",
+                "Ajio",
+                "Nykaa",
+                "Meesho",
+                "FirstCry",
+                "PharmEasy"
+            ]
+        },
+        {
+            "category": [
+                "Flights"
+            ],
+            "benefit_type": "cashback",
+            "benefit_value": 5,
+            "eligible_merchants": [
+                "Cleartrip",
+                "Goibibo",
+                "Ixigo",
+                "Yatra",
+                "EaseMyTrip",
+                "Paytm Travel"
+            ]
+        },
+        {
+            "category": [
+                "Movies",
+                "Entertainment"
+            ],
+            "benefit_type": "cashback",
+            "benefit_value": 5,
+            "eligible_merchants": [
+                "BookMyShow",
+                "Netflix",
+                "Prime Video",
+                "JioHotstar",
+                "Sony LIV"
+            ]
+        },
+        {
+            "category": [
+                "Transport"
+            ],
+            "benefit_type": "cashback",
+            "benefit_value": 5,
+            "eligible_merchants": [
+                "Uber",
+                "Ola"
+            ]
+        },
+        {
+            "category": [
+                "Electronics"
+            ],
+            "benefit_type": "cashback",
+            "benefit_value": 5,
+            "eligible_merchants": [
+                "Croma",
+                "Reliance Digital",
+                "Vijay Sales"
+            ]
+        }
+    ]
+}
