@@ -24,12 +24,12 @@ export default function ResultsList({ results, category, merchant, amount }: Pro
       <div className="mb-4">
         <h2 className="font-semibold text-slate-800">Recommendation</h2>
         <p className="text-sm text-slate-500">
-          ₹{amount} on {merchant} · {category}
+          {'₹' + amount + ' on ' + merchant + ' · ' + category}
         </p>
       </div>
       <div className="flex flex-col gap-3">
         {results.map((r) => (
-          <ResultCard key={r.card.card_id} result={r} />
+          <ResultCard key={r.card.card_id} result={r} currentCategory={category} />
         ))}
       </div>
     </div>
