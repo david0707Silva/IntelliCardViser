@@ -3,12 +3,12 @@ export type CardVariant = 'cashback' | 'rewards' | 'milestone' | 'hybrid'
 export type BenefitType = 'cashback' | 'instant_discount' | 'reward_points' | 'milestone'
 
 export interface CategoryBenefit {
-  merchants: string[]          // empty array = applies to all merchants in category
+  merchants: string[]
   benefit_type: BenefitType
-  benefit_value: number        // % for cashback/discount, multiplier for points
-  max_cap: number | null       // max savings per month in ₹, null = no cap
-  min_txn: number | null       // minimum transaction amount, null = no minimum
-  notes: string | null         // any assumptions or conditions
+  benefit_value: number
+  max_cap: number | null
+  min_txn: number | null
+  notes: string | null
 }
 
 export interface Card {
@@ -16,19 +16,45 @@ export interface Card {
   bank: string
   name: string
   variant: CardVariant
-  point_value: number | null   // ₹ value of 1 reward point, null for cashback cards
+  point_value: number | null
   annual_fee: number
-  benefits: Record<string, CategoryBenefit[]>  // key = category name
-  last_verified: string        // ISO date string
+  benefits: Record<string, CategoryBenefit[]>
+  last_verified: string
 }
 
 export interface Offer {
   offer_id: string
-  ca  ca  ca  ca  ca  ca  ct: stri  ca  ca  ca  ca  ca  ca  ct: stri  ca  ca  ca  ca  ca  ca  ct: strmic'
-  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  etrin  e  e  e  e  e  e  e  e  e  e  eri  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  merch  e  e  e  e  e  e  e number  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  e  er                 // 1 = best, 2 = second, 3 = third
+  card_id: string
+  merchant: string
+  discount: number
+  cap: number | null
+  type: 'static' | 'dynamic'
+  expiry: string | null
+  source_url: string | null
+}
+
+export interface UserCard {
+  id: string
+  user_id: string
+  card_id: string
+  added_at: string
+}
+
+export interface RecommendInput {
+  category: string
+  merchant: string
+  amount: number
+  user_cards: Card[]
+}
+
+export interface RecommendationResult {
+  rank: number
   card: Card
-  estimated_sav  estimated_sav  estimated_sav  estimated_sav  estimated_sav  estimated_sav r
-                                                           this card won
-  cap_reminder: string | null  // warning if cap may be hit
-  assumption: string | null    // any assumptions made
+  estimated_savings: number
+  benefit_type: BenefitType
+  benefit_value: number
+  cap: number | null
+  reason: string
+  cap_reminder: string | null
+  assumption: string | null
 }

@@ -10,6 +10,89 @@ interface GroupedCards {
   [bank: string]: Card[]
 }
 
+function CardRequestForm() {
+  const [bankName, setBankName] = useState('')
+  const [cardName, setCardName] = useState('')
+  const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [showForm, setShowForm] = useState(false)
+
+  const handleSubmit = async () => {
+    if (!bankName.trim() || !cardName.trim() || submitting) return
+    setSubmitting(true)
+    try {
+      await fetch('/api/card-needed', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bank_name: bankName, card_name: cardName }),
+      })
+      setSubmitted(true)
+      setShowForm(false)
+    } catch {
+      setSubmitted(true)
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  if (submitted) {
+    return (
+      <div className="p-4 bg-green-50 rounded-xl text-center">
+        <p className="text-sm text-green-700 font-medium">Thanks! We will add your card soon.</p>
+      </div>
+    )
+  }
+
+  return (
+    <div className="p-4 bg-slate-100 rounded-xl">
+      {!showForm ? (
+        <div className="text-center">
+          <p className="text-xs text-slate-500 mb-2">Dont see your card? Let us know.</p>
+          <button
+            onClick={() => setShowForm(true)}
+            className="text-xs text-slate-700 font-medium underline"
+          >
+            Request a card
+          </button>
+        </div>
+      ) : (
+        <div>
+          <p className="text-xs font-medium text-slate-600 mb-3">Request a card</p>
+          <input
+            type="text"
+            placeholder="Bank name (e.g. HDFC)"
+            value={bankName}
+            onChange={(e) => setBankName(e.target.value.slice(0, 100))}
+            className="w-full text-sm border border-slate-200 rounded-lg p-2 mb-2 bg-white"
+          />
+          <input
+            type="text"
+            placeholder="Card name (e.g. Millennia)"
+            value={cardName}
+            onChange={(e) => setCardName(e.target.value.slice(0, 100))}
+            className="w-full text-sm border border-slate-200 rounded-lg p-2 mb-3 bg-white"
+          />
+          <div className="flex gap-2">
+            <button
+              onClick={handleSubmit}
+              disabled={submitting || !bankName.trim() || !cardName.trim()}
+              className="flex-1 bg-slate-800 text-white text-sm py-2 rounded-lg font-medium disabled:opacity-50"
+            >
+              {submitting ? 'Sending...' : 'Submit'}
+            </button>
+            <button
+              onClick={() => setShowForm(false)}
+              className="flex-1 border border-slate-200 text-slate-600 text-sm py-2 rounded-lg"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function MyCardsPage() {
   const router = useRouter()
   const [allCards, setAllCards] = useState<Card[]>([])
@@ -61,7 +144,6 @@ export default function MyCardsPage() {
     <main className="min-h-screen bg-slate-50">
       <div className="max-w-2xl mx-auto px-4 pt-8 pb-32">
 
-        {/* Header */}
         <div className="mb-6">
           <h1 className="text-2xl font-bold text-slate-800">My Cards</h1>
           <p className="text-sm text-slate-500 mt-1">
@@ -69,7 +151,6 @@ export default function MyCardsPage() {
           </p>
         </div>
 
-        {/* Card list grouped by bank */}
         {Object.keys(grouped).sort().map((bank) => (
           <div key={bank} className="mb-6">
             <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
@@ -120,15 +201,11 @@ export default function MyCardsPage() {
           </div>
         ))}
 
-        <div className="p-4 bg-slate-100 rounded-xl">
-          <p className="text-xs text-slate-500 text-center">
-            Dont see your card? We are working on adding more cards soon.
-          </p>
-        </div>
+        <CardRequestForm />
 
       </div>
 
-      {/* Sticky bottom bar — always visible */}
+      {/* Sticky bottom bar */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-4 py-4 z-50">
         <div className="max-w-2xl mx-auto flex items-center justify-between gap-4">
           <div>
